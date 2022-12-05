@@ -34,5 +34,8 @@ class TestReg(unittest.TestCase):
 
 if __name__ == "__main__": unittest.main()
 
+# запуск через терминал
+# python -m unittest lesson2_step13_unit-test.py
+
 # ответ
 # FAILED (errors=1)
