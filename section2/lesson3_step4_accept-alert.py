@@ -1,35 +1,32 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time, math
+import time
+import math
+import chromedriver_autoinstaller
 
+chromedriver_autoinstaller.install()
 link = "http://suninjuly.github.io/alert_accept.html"
 
-try:
-    browser = webdriver.Chrome()
-    browser.get(link)
 
-    def calc(x):
-        return str(math.log(abs(12 * math.sin(int(x)))))
+def calc(x):
+    return str(math.log(abs(12 * math.sin(int(x)))))
 
-    button1 = browser.find_element(By.CSS_SELECTOR, ".btn")
-    button1.click()
 
-    alert = browser.switch_to.alert
-    time.sleep(3)
-    alert.accept()
+def test_fill_form():
+    try:
+        browser = webdriver.Chrome()
+        browser.get(link)
 
-    x_element = browser.find_element(By.ID, "input_value")
-    x = x_element.text
-    y = calc(x)
+        browser.find_element(By.CSS_SELECTOR, ".btn").click()
 
-    input1 = browser.find_element(By.ID, "answer")
-    input1.send_keys(y)
+        alert = browser.switch_to.alert
+        alert.accept()
 
-    button2 = browser.find_element(By.CSS_SELECTOR, ".btn")
-    button2.click()
+        x = browser.find_element(By.ID, "input_value").text
+        y = calc(x)
 
-finally:
-    # успеваем скопировать код за 30 секунд
-    time.sleep(10)
-    # закрываем браузер после всех манипуляций
-    browser.quit()
+        browser.find_element(By.ID, "answer").send_keys(y)
+        browser.find_element(By.CSS_SELECTOR, ".btn").click()
+
+    finally:
+        time.sleep(5)
