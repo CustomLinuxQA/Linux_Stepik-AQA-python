@@ -11,6 +11,7 @@ link = "http://suninjuly.github.io/get_attribute.html"
 def calc(x):
     return str(math.log(abs(12 * math.sin(int(x)))))
 
+
 def test_fill_form():
     try:
         browser = webdriver.Chrome()
