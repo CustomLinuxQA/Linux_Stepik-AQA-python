@@ -22,14 +22,11 @@ def link_t(link):
         return browser.find_element(By.TAG_NAME, "h1").text
 
 
-class TestReg():
-    def test_reg1(self):
-        assert(link_t("http://suninjuly.github.io/registration1.html"),
-                         "Congratulations! You have successfully registered!", "registration is failed")
-
-    def test_reg2(self):
-        assert(link_t("http://suninjuly.github.io/registration2.html"),
-                         "Congratulations! You have successfully registered!", "registration is failed")
+def test_reg1():
+    assert (link_t("http://suninjuly.github.io/registration1.html"),
+            "Congratulations! You have successfully registered!", "registration is failed")
 
 
-if __name__ == "__main__": unittest.main()
+def test_reg2():
+    assert (link_t("http://suninjuly.github.io/registration2.html"),
+            "Congratulations! You have successfully registered!", "registration is failed")
