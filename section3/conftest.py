@@ -9,9 +9,6 @@ chromedriver_autoinstaller.install()
 geckodriver_autoinstaller.install()
 
 
-
-
-
 @pytest.fixture(scope="function")
 def browser():
     print("\nstart browser for test..")
@@ -29,9 +26,14 @@ def driver():
     print("\nquit browser..")
     driver.quit()
 
+
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default=None,
-                     help="Choose browser: chrome or firefox")
+                     help="Choose browser: '--browser_name=chrome' or '--browser_name=firefox'")
+
+    parser.addoption('--language', action='store', default=None,
+                     help="Choose language: '--language=en' or '--language=ru'")
+
 
 @pytest.fixture(scope="function")
 def r_browser(request):
