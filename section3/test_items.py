@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 link = "http://selenium1py.pythonanywhere.com/"
 
 
-def test_add_to_basket(r_browser):
+def test_test_check_basket_button_exists(r_browser):
     r_browser.get(link)
     time.sleep(30) # для зрительной проверки языка согласно пункту 2 условия задачи.
     r_browser.find_element(By.CSS_SELECTOR, ".dropdown-toggle").click()
