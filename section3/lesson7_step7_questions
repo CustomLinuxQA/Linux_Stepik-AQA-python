@@ -1,0 +1,1 @@
+pytest -m "smoke or regression" --browser_name=firefox test_login.py
